@@ -1,9 +1,11 @@
 const Reader = require("./Reader");
+const Writer = require("./Writer");
 const Processor = require("./Processor");
 const Table = require("./Table");
 const HtmlParser = require("./HtmlParser");
 
 const leitor = new Reader();
+const escritor = new Writer();
 
 leitor.Read("./users.csv");
 
@@ -14,5 +16,5 @@ leitor.Read("./users.csv");
 
   var html = await HtmlParser.Parse(usuarios);
 
-  console.log(html);
+  escritor.Write(Date.now() + ".html", html);
 })();
